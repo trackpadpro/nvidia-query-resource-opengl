@@ -29,8 +29,10 @@
 #include "nvidia-query-resource-opengl-ipc.h"
 
 #if defined (_WIN32)
-#include <windows.h>
-typedef DWORD pid_t;
+    #include <windows.h>
+    #ifndef __MINGW64__
+        typedef DWORD pid_t;
+    #endif
 #endif
 
 typedef enum {
